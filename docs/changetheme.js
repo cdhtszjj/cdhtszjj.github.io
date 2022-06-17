@@ -35,26 +35,26 @@ function loadTheme() {
         const theme = localStorage.getItem('theme');
         changeImgDom('home-avatar', theme);
         changeImgDom('home-title', theme);
-        changeImgDom('header-title', theme);
+        // changeImgDom('header-title', theme);
     }
 }
 
-// (function () {
-//     console.log('欢迎来到 free 笔记');
+(function () {
+    console.log('欢迎来到数字经济知识库');
 
-//     const orignalSetItem = localStorage.setItem;
-//     localStorage.setItem = function (key) {
-//         var setItemEvent = new Event("setItemEvent");
-//         setItemEvent.key = key;
-//         window.dispatchEvent(setItemEvent);
-//         orignalSetItem.apply(this, arguments);
-//     };
+    const orignalSetItem = localStorage.setItem;
+    localStorage.setItem = function (key) {
+        var setItemEvent = new Event("setItemEvent");
+        setItemEvent.key = key;
+        window.dispatchEvent(setItemEvent);
+        orignalSetItem.apply(this, arguments);
+    };
 
-//     window.addEventListener("setItemEvent", function (e) {
-//         if (e.key == 'theme') {
-//             setTimeout(() => { loadTheme(); }, 0);
-//         }
-//     });
+    window.addEventListener("setItemEvent", function (e) {
+        if (e.key == 'theme') {
+            setTimeout(() => { loadTheme(); }, 0);
+        }
+    });
 
-//     setTimeout(() => { loadTheme(); }, 0);
-// })();
+    setTimeout(() => { loadTheme(); }, 0);
+})();
