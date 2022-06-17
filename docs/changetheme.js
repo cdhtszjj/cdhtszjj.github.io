@@ -39,22 +39,22 @@ function loadTheme() {
     }
 }
 
-(function () {
-    console.log('欢迎来到 free 笔记');
+// (function () {
+//     console.log('欢迎来到 free 笔记');
 
-    const orignalSetItem = localStorage.setItem;
-    localStorage.setItem = function (key) {
-        var setItemEvent = new Event("setItemEvent");
-        setItemEvent.key = key;
-        window.dispatchEvent(setItemEvent);
-        orignalSetItem.apply(this, arguments);
-    };
+//     const orignalSetItem = localStorage.setItem;
+//     localStorage.setItem = function (key) {
+//         var setItemEvent = new Event("setItemEvent");
+//         setItemEvent.key = key;
+//         window.dispatchEvent(setItemEvent);
+//         orignalSetItem.apply(this, arguments);
+//     };
 
-    window.addEventListener("setItemEvent", function (e) {
-        if (e.key == 'theme') {
-            setTimeout(() => { loadTheme(); }, 0);
-        }
-    });
+//     window.addEventListener("setItemEvent", function (e) {
+//         if (e.key == 'theme') {
+//             setTimeout(() => { loadTheme(); }, 0);
+//         }
+//     });
 
-    setTimeout(() => { loadTheme(); }, 0);
-})();
+//     setTimeout(() => { loadTheme(); }, 0);
+// })();
